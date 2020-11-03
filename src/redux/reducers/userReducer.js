@@ -19,7 +19,7 @@ const initialState = {
   items: [],
   tags: "",
   minOrderAmount: "",
-  costForOne: "",
+  
   cart: {},
   _id: "",
   firstName: "",

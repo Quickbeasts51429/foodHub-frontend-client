@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function RestaurantCard(props) {
+export default function ShopCard(props) {
   const {
     name,
     tags,
@@ -49,9 +49,7 @@ export default function RestaurantCard(props) {
         <Typography variant="body2" color="textSecondary" component="p" noWrap>
           {tags}
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          Costs Rs.{costForOne} for one
-        </Typography>
+        
         <Typography variant="body2" color="textPrimary">
           Minimum order Rs.{minOrderAmount}
         </Typography>

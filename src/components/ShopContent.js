@@ -5,16 +5,16 @@ import { useSelector } from "react-redux";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 
-import RestaurantCard from "./RestaurantCard";
+import ShopCard from "./ShopCard";
 
-const RestaurantContent = () => {
-  const { restaurants } = useSelector((state) => state.data);
-  const restaurantArray = restaurants.restaurants;
+const ShopContent = () => {
+  const {shops } = useSelector((state) => state.data);
+  const shopArray = shops.shops;
 
-  const getRestaurantCard = (restaurantObj) => {
+  const getShopCard = (shopObj) => {
     return (
-      <Grid item xs={12} sm={3} key={restaurantObj._id}>
-        <RestaurantCard {...restaurantObj} />
+      <Grid item xs={12} sm={3} key={shopObj._id}>
+        <ShopCard {...shopObj} />
       </Grid>
     );
   };
@@ -31,12 +31,12 @@ const RestaurantContent = () => {
       </Typography>
       <br />
       <Grid container spacing={2}>
-        {restaurantArray ? (
-          restaurantArray.length > 0 ? (
-            restaurantArray.map((restaurant) => getRestaurantCard(restaurant))
+        {shopArray ? (
+          shopArray.length > 0 ? (
+            shopArray.map((shop) => getShopCard(shop))
           ) : (
             <p>
-              No Restaurants currently available in your area, come back Later.
+              No Shops currently available in your area, come back Later.
             </p>
           )
         ) : (
@@ -47,4 +47,4 @@ const RestaurantContent = () => {
   );
 };
 
-export default RestaurantContent;
+export default ShopContent;

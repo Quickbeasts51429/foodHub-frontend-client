@@ -1,6 +1,6 @@
 //data reducers
-export const SET_RESTAURANTS = "SET_RESTAURANTS";
-export const SET_RESTAURANT = "SET_RESTAURANT";
+export const SET_SHOPS = "SET_SHOPS";
+export const SET_SHOP = "SET_SHOP";
 export const LOADING_DATA = "LOADING_DATA";
 export const ADD_CART_SUCCESS = "ADD_CART_SUCCESS";
 export const ADD_CART_FAIL = "ADD_CART_FAIL";

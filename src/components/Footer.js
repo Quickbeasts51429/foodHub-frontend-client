@@ -11,14 +11,19 @@ import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    backgroundColor: "#e8ede1",
+    backgroundColor:" #94BBF6",
     marginTop: 40,
-    height: "42vh",
+    height: "20vh",
     textAlign: "center",
+    alignItems: "center",
+    flex: 0.7,
+    display: "flex",
+    fontColor:"#ffcd4d",
   },
-  innerCont: {
-    margin: "74px 40px 40px 40px",
-  },
+  /*innerCont: {
+  margin: "74px 40px 40px 40px",
+    
+},*/
   resources: {
     margin: "60px 40px 10px 40px",
   },
@@ -26,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     backgroundColor: theme.palette.primary.main,
     "&:hover": {
-      backgroundColor: "#5a5c5a",
+      backgroundColor: "#B0B9DF",
     },
   },
   buttonStyleTwo: {
@@ -45,7 +50,7 @@ export default function Footer() {
   const classes = useStyles();
   return (
     <Grid container direction="row" className={classes.container}>
-      <Grid item xs={12} sm={4} className={classes.innerCont}>
+      <Grid item xs={12} sm={6} className={classes.innerCont}>
         {authenticated ? (
           <Grid container direction="row">
             <Grid item xs={12} sm={6}>
@@ -77,44 +82,30 @@ export default function Footer() {
           </Grid>
         ) : (
           <>
-            <Typography variant="h4" component="p">
-              FoodHub for Business
+            <Typography variant="h5" component="p">
+              Gro-Pal for Business
             </Typography>
             <Typography variant="body1" component="p">
-              Get more out of your business, without losing focus on what is
-              most important — delighting your customers
+            Start earning by Adding your shop at Gro-Pal
             </Typography>
             <br />
-            <Link to="/addrestaurant">
+            <Link to="/addshop">
               <Button className={classes.buttonStyleOne}>Get Started</Button>
             </Link>
           </>
         )}
       </Grid>
-      <Grid item xs={12} sm={3} className={classes.innerCont}>
+      <Grid item xs={12} sm={6} className={classes.innerCont}>
         <Typography variant="h5" component="p">
-          FoodHub NewsLetter
+          Gro-Pal  NewsLetter
         </Typography>
-        <Typography variant="body1" component="p" style={{ marginBottom: 28 }}>
-          Stay updated with new offers from FoodHub
+        <Typography variant="body1" component="p" style={{ marginBottom: 0 }}>
+          Grab the  best deals at the earliest 
         </Typography>
         <TextField label="Your Email address" variant="outlined" />
         <Button className={classes.buttonStyleTwo}>SEND</Button>
       </Grid>
-      <Grid item xs={12} sm={3} className={classes.resources}>
-        <Typography variant="h5" component="p">
-          Resources/Stack Used
-        </Typography>
-        <Typography variant="body1" component="p" style={{ marginBottom: 28 }}>
-          - React Material UI Redux
-          <br />
-          - NodeJs <br />
-          - Express <br />
-          - MongoDB Atlas <br />
-          - Zomato <br />
-          - Freepik <br />
-        </Typography>
-      </Grid>
+        
     </Grid>
   );
 }

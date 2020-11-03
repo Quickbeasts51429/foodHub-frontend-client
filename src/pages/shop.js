@@ -7,16 +7,16 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 
 import Spinner from "../util/spinner/spinner";
-import RestaurantInfo from "../components/RestaurantInfo";
-import RestaurantItems from "../components/RestaurantItems";
+import ShopInfo from "../components/ShopInfo";
+import ShopItems from "../components/ShopItems";
 import SearchBar from "../components/SearchBar";
-import { fetchRestaurant } from "../redux/actions/dataActions";
+import { fetchShop } from "../redux/actions/dataActions";
 
-export default function Restaurant(props) {
+export default function Shop(props) {
   const restId = props.location.state.restId;
   const { loading } = useSelector((state) => state.data);
-  const restaurant = useSelector((state) => state.data.restaurant);
-  const { items } = useSelector((state) => state.data.restaurant);
+  const shop = useSelector((state) => state.data.shop);
+  const { items } = useSelector((state) => state.data.shop);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -63,8 +63,8 @@ export default function Restaurant(props) {
   };
 
   useEffect(() => {
-    console.log("in useEffect restaurant");
-    dispatch(fetchRestaurant(restId));
+    console.log("in useEffect shop");
+    dispatch(fetchShop(restId));
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
@@ -73,7 +73,7 @@ export default function Restaurant(props) {
         <Spinner />
       ) : (
         <>
-          <RestaurantInfo {...restaurant} />
+          <ShopInfo {...shop} />
           <Grid container direction="row" style={{ marginTop: 40 }}>
             <Grid
               item
@@ -99,7 +99,7 @@ export default function Restaurant(props) {
                 noWrap
                 style={{ textAlign: "center" }}
               >
-                Order from wide varieties of different available Items below
+                Order from the Available Items Below
               </Typography>
               <br />
             </Grid>
@@ -111,7 +111,7 @@ export default function Restaurant(props) {
             >
               <SearchBar page="items" handleSearch={handleSearch} />
             </Grid>
-            <RestaurantItems items={filteredItemsState} />
+            <ShopItems items={filteredItemsState} />
           </Grid>
         </>
       )}

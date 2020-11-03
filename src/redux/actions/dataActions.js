@@ -1,7 +1,7 @@
 import {
-  SET_RESTAURANTS,
+  SET_SHOPS,
   LOADING_DATA,
-  SET_RESTAURANT,
+  SET_SHOP,
   LOADING_UI,
   SET_ERROR_ITEM,
   SERVER_ERROR,
@@ -21,58 +21,58 @@ import axios from "../../util/axios";
 import axiosNewInstance from "axios";
 import { getUserData } from "./authActions";
 
-export const fetchRestaurants = () => (dispatch) => {
+export const fetchSHOPS = () => (dispatch) => {
   dispatch({ type: LOADING_DATA });
   axios
-    .get("/restaurants")
+    .get("/shops")
     .then((res) => {
       dispatch({
-        type: SET_RESTAURANTS,
+        type: SET_SHOPS,
         payload: res.data,
       });
     })
     .catch((err) => {
       console.log(err);
       dispatch({
-        type: SET_RESTAURANTS,
+        type: SET_SHOPS,
         payload: [],
       });
     });
 };
 
-export const fetchRestaurantsByAddress = (lat, lng) => (dispatch) => {
+export const fetchShopsByAddress = (lat, lng) => (dispatch) => {
   dispatch({ type: LOADING_DATA });
   axios
-    .get(`/restaurants-location/${lat}/${lng}`)
+    .get(`/shops-location/${lat}/${lng}`)
     .then((res) => {
       dispatch({
-        type: SET_RESTAURANTS,
+        type: SET_SHOPS,
         payload: res.data,
       });
     })
     .catch((err) => {
       console.log(err);
       dispatch({
-        type: SET_RESTAURANTS,
+        type: SET_SHOPS,
         payload: [],
       });
     });
 };
 
-export const fetchRestaurant = (restId) => (dispatch) => {
+export const fetchShop = (restId) => (dispatch) => {
   dispatch({ type: LOADING_DATA });
   axios
-    .get(`/restaurant/${restId}`)
+    .get(`/shop/${restId}`)
     .then((res) => {
       dispatch({
-        type: SET_RESTAURANT,
+        type: SET_SHOP,
         payload: res.data,
       });
     })
     .catch((err) => {
       console.log(err);
       dispatch({
-        type: SET_RESTAURANT,
+        type: SET_SHOP,
         payload: {},
       });
     });

@@ -11,7 +11,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
-import hamBurgerIcon from "../images/hamburger.jpg";
+import loginIcon from "../images/login.svg";
 
 //custom-hook
 import useForm from "../hooks/forms";
@@ -22,9 +22,9 @@ const useStyles = makeStyles((theme) => ({
   title: {
     margin: "10px 0px 10px 0px",
   },
-  hamBurger: {
-    height: 200,
-    width: 240,
+   loginIcon : {
+    height: 80,
+    width: 100,
   },
 }));
 
@@ -66,12 +66,12 @@ export default function Login() {
       <Grid item sm />
       <Grid item sm style={{ marginBottom: 34 }}>
         <img
-          src={hamBurgerIcon}
-          alt="hamBurger"
-          className={classes.hamBurger}
+          src={loginIcon}
+          alt="loginIcon"
+          className={classes.loginIcon}
         />
         <Typography variant="h3" className={classes.title}>
-          Login
+         User  Login 
         </Typography>
         <form noValidate onSubmit={handleSubmit}>
           {signUpSuccess && (

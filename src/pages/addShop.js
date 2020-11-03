@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AddRestaurant() {
+export default function AddShop() {
   const classes = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -65,7 +65,7 @@ export default function AddRestaurant() {
   let phoneNoError = null;
   let nameError = null;
   let tagsError = null;
-  let costForOneError = null;
+  
   let minOrderError = null;
   let paymentError = null;
 
@@ -79,15 +79,14 @@ export default function AddRestaurant() {
         confirmPasswordError = error.msg;
       if (error.msg.includes("10 digit phone")) phoneNoError = error.msg;
       if (error.msg.includes("Minimum Order")) minOrderError = error.msg;
-      if (error.msg.includes("Cost for one cannot"))
-        costForOneError = error.msg;
+      
       if (error.msg.includes("Zipcode cannot")) zipError = error.msg;
       if (error.msg.includes("Locality cannot")) localityError = error.msg;
       if (error.msg.includes("Apartment name cannot")) aptError = error.msg;
       if (error.msg.includes("Street cannot")) streetError = error.msg;
       if (error.msg.includes("Tags cannot")) tagsError = error.msg;
       if (error.msg.includes("Payment cannot be")) paymentError = error.msg;
-      if (error.msg.includes("Restaurant Name")) nameError = error.msg;
+      if (error.msg.includes("Shop  Name")) nameError = error.msg;
     }
   }
 
@@ -99,7 +98,7 @@ export default function AddRestaurant() {
     formData.append("name", inputs.name);
     formData.append("email", inputs.email);
     formData.append("tags", inputs.tags);
-    formData.append("costForOne", inputs.costForOne);
+    
     formData.append("minOrderAmount", inputs.minOrderAmount);
     formData.append("street", inputs.street);
     formData.append("aptName", inputs.aptName);
@@ -118,7 +117,7 @@ export default function AddRestaurant() {
       name: "",
       email: "",
       tags: "",
-      costForOne: "",
+     
       minOrderAmount: "",
       street: "",
       aptName: "",
@@ -145,22 +144,22 @@ export default function AddRestaurant() {
                   className={classes.title}
                   style={{ textAlign: "center" }}
                 >
-                  Add a Restaurant
+                  Add your Shop
                 </Typography>
                 <Typography
                   variant="body1"
                   component="p"
                   style={{ margin: "10px 10px 2px 10px" }}
                 >
-                  Basic Info - Get Started
+                  Basic Info - Let's Go!
                 </Typography>
                 <form noValidate onSubmit={handleSubmit}>
                   <TextField
                     id="restName"
                     name="name"
-                    label="Restaurant Name"
+                    label="Shop Name"
                     className={classes.textField}
-                    placeholder="Your restaurant name"
+                    placeholder="Your shop  name"
                     onChange={handleInputChange}
                     value={inputs.name}
                     helperText={nameError}
@@ -194,34 +193,7 @@ export default function AddRestaurant() {
                     fullWidth
                     required
                   />
-                  <TextField
-                    id="costForOne"
-                    name="costForOne"
-                    label="Cost For One"
-                    placeholder="Cost for single person"
-                    className={classes.textField}
-                    onChange={handleInputChange}
-                    value={inputs.costForOne}
-                    helperText={costForOneError}
-                    error={costForOneError ? true : false}
-                    type="number"
-                    fullWidth
-                    required
-                  />
-                  <TextField
-                    id="minOrderAmount"
-                    name="minOrderAmount"
-                    label="Min Order Amount"
-                    placeholder="Minimum amount to place order"
-                    className={classes.textField}
-                    onChange={handleInputChange}
-                    value={inputs.minOrderAmount}
-                    helperText={minOrderError}
-                    error={minOrderError ? true : false}
-                    type="number"
-                    fullWidth
-                    required
-                  />
+                 
                   <Typography
                     variant="body2"
                     component="p"
@@ -328,7 +300,7 @@ export default function AddRestaurant() {
                       component="p"
                       style={{ margin: "4px 10px 2px 10px", color: "#f44336" }}
                     >
-                      Upload an Image as well
+                      Upload an image of your Shop
                     </Typography>
                   )}
                   <TextField
@@ -389,7 +361,7 @@ export default function AddRestaurant() {
                     className={classes.small}
                     style={{ marginLeft: "260px" }}
                   >
-                    Partner with FoodHub and scale your business
+                   Join our community to Grow and Earn!
                   </small>
                 </form>
               </Grid>
@@ -417,10 +389,10 @@ export default function AddRestaurant() {
               color="textPrimary"
               style={{ marginLeft: "30px", fontSize: "16px" }}
             >
-              1. Tell us about your restaurant. <br />
+              1. Tell us about your shop. <br />
               2. Verify your Email. <br />
-              3. Access Restaurant Dashboard and go
-              &nbsp;&nbsp;&nbsp;&nbsp;live.
+              3. Access Shop  Dashboard and go
+              &nbsp;&nbsp;&nbsp;Live.
               <br />
               <br />
               <br />

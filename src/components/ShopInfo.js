@@ -34,14 +34,14 @@ const useStyles = makeStyles({
   },
 });
 
-function Restaurant(props) {
+function Shop(props) {
   const classes = useStyles();
   const { loading } = useSelector((state) => state.data);
   const {
     name,
     imageUrl,
     tags,
-    costForOne,
+   
     minOrderAmount,
     payment,
     address,
@@ -81,9 +81,8 @@ function Restaurant(props) {
               <Typography variant="body2" color="textSecondary" component="p">
                 {tags}
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-                Costs Rs.{costForOne} for one
-              </Typography>
+              
+             
               <Typography variant="body2" color="textPrimary">
                 Minimum order Rs.{minOrderAmount}
               </Typography>
@@ -98,12 +97,12 @@ function Restaurant(props) {
                 Call: +91 {phoneNo}
               </Typography>
               <Typography variant="body2" color="textPrimary">
-                Dine-In Timing: 1pm to 12am
+                 Open: 7:00am to 22:00pm
               </Typography>
             </Grid>
             <Grid item xs={12} sm={4} style={{ marginTop: 34 }}>
               {imageUrl ? (
-                <SwipeableImages images={imageUrl} type="restaurant" />
+                <SwipeableImages images={imageUrl} type="shops" />
               ) : null}
             </Grid>
             <div className={classes.borderLeft}></div>
@@ -116,4 +115,6 @@ function Restaurant(props) {
   );
 }
 
-export default React.memo(Restaurant);
+export default React.memo(Shop);
+
+

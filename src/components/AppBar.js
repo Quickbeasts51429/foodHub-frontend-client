@@ -11,24 +11,28 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 
 import { logoutAction } from "../redux/actions/authActions";
+import { GpsFixed } from "@material-ui/icons";
 
 const useStyles = makeStyles(() => ({
   appBar: {
-    backgroundColor: "#e8ede1",
+    backgroundColor: "#646161",
     marginBottom: 10,
+    
   },
-  title: { flex: 1, marginLeft: 60, color: "black" },
+  title: { flex: 1, marginLeft: 60, color: "#ffcd4d" },
   buttonStyles: {
-    color: "black",
+    color: "#ffcd4d",
     margin: "0 6px 0",
     display: "inline-block",
+    fontSize: 20 ,
+
   },
   buttons: {
     marginRight: 60,
   },
   name: {
     fontStyle: "bold",
-    fontSize: 32,
+    fontSize: 34,
   },
 }));
 
@@ -54,7 +58,7 @@ export default function AppBarPrimary() {
       <Toolbar>
         <Link to="/" className={classes.title}>
           <Typography variant="h6" noWrap>
-            <span className={classes.name}>FoodHub</span>
+            <span className={classes.name}>Gro-Pal  </span>
           </Typography>
         </Link>
         {authenticated ? (
@@ -97,11 +101,11 @@ export default function AppBarPrimary() {
         ) : (
           <div className={classes.buttons}>
             <Link to="/login">
-              <Button className={classes.buttonStyles}>Login</Button>
+              <Button className={classes.buttonStyles}>LOGIN</Button>
             </Link>
             <Link to="/register">
               <Button className={classes.buttonStyles} variant="outlined">
-                Register
+                REGISTER
               </Button>
             </Link>
           </div>

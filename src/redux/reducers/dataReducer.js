@@ -1,7 +1,7 @@
 import {
-  SET_RESTAURANTS,
+  SET_SHOPS,
   LOADING_DATA,
-  SET_RESTAURANT,
+  SET_SHOP,
   ADD_CART_FAIL,
   ADD_CART_SUCCESS,
   SET_CART,
@@ -11,8 +11,8 @@ import {
 } from "../types";
 
 const initialState = {
-  restaurants: [],
-  restaurant: {},
+shops: [],
+shop: {},
   cart: [],
   price: "",
   loading: false,
@@ -28,17 +28,17 @@ export default function (state = initialState, action) {
         ...state,
         loading: true,
       };
-    case SET_RESTAURANTS:
+    case SET_SHOPS:
       return {
         ...state,
         loading: false,
-        restaurants: action.payload,
+      shops: action.payload,
       };
-    case SET_RESTAURANT:
+    case SET_SHOP:
       return {
         ...state,
         loading: false,
-        restaurant: action.payload.result,
+      shop: action.payload.result,
       };
     case ADD_CART_SUCCESS:
       return {

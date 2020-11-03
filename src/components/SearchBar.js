@@ -17,7 +17,7 @@ import SearchIcon from "@material-ui/icons/Search";
 
 import axios from "axios";
 
-import { fetchRestaurantsByAddress } from "../redux/actions/dataActions";
+import { fetchShopsByAddress } from "../redux/actions/dataActions";
 
 const useStyles = makeStyles((theme) => ({
   rootHome: {
@@ -87,7 +87,7 @@ export default function CustomizedInputBase(props) {
   };
 
   const fetchRestByLocation = (latlng) => {
-    dispatch(fetchRestaurantsByAddress(latlng.lat, latlng.lng));
+    dispatch(fetchShopsByAddress(latlng.lat, latlng.lng));
     props.action(true);
   };
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+import './home.css';
 
 //material-ui
 import { makeStyles } from "@material-ui/core/styles";
@@ -10,10 +11,10 @@ import Grid from "@material-ui/core/Grid";
 import HomeStart from "../components/HomeStart";
 import SearchBar from "../components/SearchBar";
 import Spinner from "../util/spinner/spinner";
-import RestaurantContent from "../components/RestaurantContent";
+import ShopContent from "../components/ShopContent";
 
 // import store from "../redux/store";
-// import { fetchRestaurantsByAddress } from "../redux/actions/dataActions";
+// import { fetchShopsByAddress } from "../redux/actions/dataActions";
 
 const useStyles = makeStyles(() => ({
   center: {
@@ -39,22 +40,23 @@ const Home = () => {
 
   // if (latlng) {
   //   const latlngArray = latlng.split(", ");
-  //   dispatch(fetchRestaurantsByAddress(latlngArray[0], latlngArray[1]));
+  //   dispatch(fetchShopsByAddress(latlngArray[0], latlngArray[1]));
   // }
 
-  let restaurantMarkup = loading ? <Spinner /> : <RestaurantContent />;
+  let shopMarkup = loading ? <Spinner /> : <ShopContent />;
   return (
     <>
       {authenticated && role === "ROLE_SELLER" ? (
         <Redirect to="/seller/dashboard" />
       ) : (
         <>
-          <HomeStart />
+            <HomeStart />
+            <div className="searhShop">
           <Grid container direction="column">
             <Grid item>
               <Typography variant="h5" className={classes.center} noWrap>
-                Your favourite food, delivered with FoodHub&nbsp;&nbsp;
-                <span style={{ fontSize: 40 }}>🍽</span>
+                Start Shopping from  nearby Stores&nbsp;&nbsp;
+                <span style={{ fontSize: 40 }}></span>
               </Typography>
             </Grid>
             <Grid item className={classes.SearchBar}>
@@ -64,16 +66,17 @@ const Home = () => {
               <Grid item xs={false} sm={1} />
               <Grid item xs={12} sm={10}>
                 {locationStatus ? (
-                  restaurantMarkup
+                  shopMarkup
                 ) : (
                   <Typography variant="body1" className={classes.center} noWrap>
-                    Enter your location to view nearby restaurants
+                    Enter your location to view nearby available stores
                   </Typography>
                 )}
               </Grid>
               <Grid item xs={false} sm={1} />
             </Grid>
-          </Grid>
+            </Grid>
+            </div>
         </>
       )}
     </>

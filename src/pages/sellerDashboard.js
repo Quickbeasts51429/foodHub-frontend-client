@@ -10,8 +10,8 @@ import Grid from "@material-ui/core/Grid";
 import useForm from "../hooks/forms";
 
 import ItemDialog from "../components/ItemDialog";
-import RestaurantInfo from "../components/RestaurantInfo";
-import RestaurantItems from "../components/RestaurantItems";
+import ShopInfo  from "../components/ShopInfo";
+import ShopItems from "../components/ShopItems";
 import SearchBar from "../components/SearchBar";
 import { addItem } from "../redux/actions/dataActions";
 
@@ -105,19 +105,19 @@ export default function SellerDashboard() {
 
   return (
     <>
-      <RestaurantInfo {...sellerData} />
+      <ShopInfo {...sellerData} />
       <Grid container direction="row" style={{ marginTop: 40 }}>
         <Grid item xs={12} sm={1} />
         <Grid item xs={12} sm={6}>
-          <Typography
+S          <Typography
             gutterBottom
             variant="h5"
             style={{ textAlign: "center", marginBottom: 30 }}
             noWrap
           >
-            Add, Edit, Delete Items in your Restaurant&nbsp;&nbsp;
+            Add, Edit, Delete Items in your Items- List&nbsp;&nbsp;
             <span role="img" aria-label="burger" style={{ fontSize: 40 }}>
-              🍜
+              
             </span>
           </Typography>
         </Grid>
@@ -125,7 +125,7 @@ export default function SellerDashboard() {
           <SearchBar page="items" handleSearch={handleSearch} />
         </Grid>
         <Grid item xs={12} sm={1} />
-        <RestaurantItems items={filteredItemsState} />
+        <ShopItems items={filteredItemsState} />
       </Grid>
       <Button fullWidth className={classes.button} onClick={handleOpen}>
         Add Item

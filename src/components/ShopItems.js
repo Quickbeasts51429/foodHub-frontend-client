@@ -1,6 +1,6 @@
 import React from "react";
 
-import ItemCard from "../components/ItemCard";
+import ItemCard from "./ItemCard";
 import { useSelector } from "react-redux";
 
 //material-ui
@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   },
 });
 
-function RestaurantItems(props) {
+function ShopItems(props) {
   const classes = useStyles();
   const { items } = props;
   const {
@@ -54,4 +54,4 @@ function RestaurantItems(props) {
   );
 }
 
-export default React.memo(RestaurantItems);
+export default React.memo(ShopItems);
